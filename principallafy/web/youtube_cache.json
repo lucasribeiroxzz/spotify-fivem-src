@@ -1,0 +1,60 @@
+{
+  "exemplo": [
+    {
+      "id": "dQw4w9WgXcQ",
+      "title": "Música de Exemplo",
+      "author": "Artista",
+      "duration": "03:30",
+      "thumbnail": "https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg",
+      "views": 1000000
+    }
+  ],
+  "funk brasileiro": [
+    {
+      "id": "abc123def45",
+      "title": "Funk Brasileiro Hit",
+      "author": "MC Exemplo",
+      "duration": "02:45",
+      "thumbnail": "https://i.ytimg.com/vi/abc123def45/mqdefault.jpg",
+      "views": 500000
+    },
+    {
+      "id": "xyz789ghi01",
+      "title": "Funk da Quebrada",
+      "author": "MC Teste",
+      "duration": "03:15",
+      "thumbnail": "https://i.ytimg.com/vi/xyz789ghi01/mqdefault.jpg",
+      "views": 750000
+    }
+  ],
+  "sertanejo": [
+    {
+      "id": "ser123tan45",
+      "title": "Sertanejo Romântico",
+      "author": "Dupla Sertaneja",
+      "duration": "04:20",
+      "thumbnail": "https://i.ytimg.com/vi/ser123tan45/mqdefault.jpg",
+      "views": 2000000
+    }
+  ],
+  "rock nacional": [
+    {
+      "id": "rock456bra78",
+      "title": "Rock Nacional Clássico",
+      "author": "Banda Nacional",
+      "duration": "05:30",
+      "thumbnail": "https://i.ytimg.com/vi/rock456bra78/mqdefault.jpg",
+      "views": 1500000
+    }
+  ],
+  "eletrônica": [
+    {
+      "id": "edm789house12",
+      "title": "House Music Brasil",
+      "author": "DJ Brasileiro",
+      "duration": "06:45",
+      "thumbnail": "https://i.ytimg.com/vi/edm789house12/mqdefault.jpg",
+      "views": 800000
+    }
+  ]
+}
