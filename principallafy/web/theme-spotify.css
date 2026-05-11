@@ -1,0 +1,445 @@
+:root {
+    --sp-green:        #1DB954;
+    --sp-green-hover:  #1ED760;
+    --sp-green-press:  #169C46;
+    --sp-bg-0:         #050505;
+    --sp-bg-1:         #0a0a0a;
+    --sp-bg-2:         #121212;
+    --sp-bg-3:         #181818;
+    --sp-bg-4:         #232323;
+    --sp-surface:      rgba(24, 24, 24, 0.72);
+    --sp-surface-2:    rgba(36, 36, 36, 0.82);
+    --sp-stroke:       rgba(255, 255, 255, 0.06);
+    --sp-stroke-2:     rgba(255, 255, 255, 0.10);
+    --sp-text:         #ffffff;
+    --sp-text-dim:     #b3b3b3;
+    --sp-text-dim-2:   #6f6f6f;
+    --sp-radius-sm:    10px;
+    --sp-radius-md:    14px;
+    --sp-radius-lg:    20px;
+    --sp-radius-xl:    28px;
+    --sp-shadow-soft:  0 8px 24px rgba(0, 0, 0, 0.45);
+    --sp-shadow-pop:   0 16px 40px rgba(0, 0, 0, 0.55);
+    --sp-shadow-glow:  0 0 0 1px rgba(29, 185, 84, 0.25), 0 12px 28px rgba(29, 185, 84, 0.15);
+    --sp-font:         'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+    --sp-ease:         cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body, html, .container, .main-content {
+    font-family: var(--sp-font) !important;
+    letter-spacing: -0.01em;
+}
+
+.container {
+    background:
+        radial-gradient(1200px 600px at 0% 0%, rgba(29, 185, 84, 0.10), transparent 60%),
+        radial-gradient(900px 500px at 100% 100%, rgba(29, 185, 84, 0.06), transparent 55%),
+        linear-gradient(180deg, var(--sp-bg-1) 0%, var(--sp-bg-0) 100%) !important;
+    backdrop-filter: blur(20px);
+    border-radius: var(--sp-radius-xl) !important;
+    overflow: hidden;
+    box-shadow: var(--sp-shadow-pop), inset 0 0 0 1px var(--sp-stroke);
+}
+
+.header-banner,
+.profile {
+    background: linear-gradient(180deg, rgba(29, 185, 84, 0.18) 0%, transparent 100%) !important;
+    border-bottom: 1px solid var(--sp-stroke);
+}
+
+.profile-pic-container {
+    box-shadow: var(--sp-shadow-glow);
+    transition: transform 0.3s var(--sp-ease);
+}
+.profile-pic-container:hover { transform: scale(1.05); }
+
+.profile-pic {
+    border-radius: 50% !important;
+    border: 2px solid var(--sp-green) !important;
+}
+
+.profile-name {
+    font-weight: 800 !important;
+    font-size: 1.1rem !important;
+    letter-spacing: -0.02em !important;
+}
+
+.profile-status-text {
+    color: var(--sp-green) !important;
+    font-weight: 600 !important;
+}
+
+.search-bar {
+    background: var(--sp-bg-3) !important;
+    border: 1px solid var(--sp-stroke) !important;
+    border-radius: var(--sp-radius-lg) !important;
+    transition: all 0.25s var(--sp-ease);
+}
+.search-bar:focus-within {
+    background: var(--sp-bg-4) !important;
+    border-color: rgba(29, 185, 84, 0.5) !important;
+    box-shadow: var(--sp-shadow-glow);
+}
+.search-bar input {
+    font-family: var(--sp-font) !important;
+    font-weight: 500 !important;
+    color: var(--sp-text) !important;
+}
+.search-bar input::placeholder {
+    color: var(--sp-text-dim-2) !important;
+}
+.search-icon { color: var(--sp-text-dim) !important; }
+
+.tabs {
+    border-bottom: 1px solid var(--sp-stroke) !important;
+    gap: 4px;
+    padding: 0 8px;
+}
+
+.tab {
+    color: var(--sp-text-dim) !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    text-transform: none !important;
+    letter-spacing: -0.01em !important;
+    padding: 14px 18px !important;
+    border-radius: 0 !important;
+    position: relative;
+    transition: color 0.2s var(--sp-ease);
+}
+.tab:hover { color: var(--sp-text) !important; }
+.tab.active {
+    color: var(--sp-text) !important;
+    background: transparent !important;
+}
+.tab.active::after {
+    content: '';
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 0;
+    height: 3px;
+    background: var(--sp-green);
+    border-radius: 3px 3px 0 0;
+}
+
+.track-card,
+.playlist-card {
+    background: var(--sp-bg-3) !important;
+    border-radius: var(--sp-radius-md) !important;
+    border: 1px solid transparent !important;
+    transition: all 0.25s var(--sp-ease) !important;
+    overflow: hidden;
+}
+.track-card:hover,
+.playlist-card:hover {
+    background: var(--sp-bg-4) !important;
+    border-color: var(--sp-stroke-2) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--sp-shadow-soft);
+}
+
+.track-row {
+    border-radius: var(--sp-radius-sm) !important;
+    transition: background 0.2s var(--sp-ease) !important;
+}
+.track-row:hover { background: rgba(255, 255, 255, 0.06) !important; }
+
+.player-bar,
+.now-playing {
+    background: linear-gradient(180deg, var(--sp-bg-2) 0%, var(--sp-bg-1) 100%) !important;
+    border-top: 1px solid var(--sp-stroke) !important;
+    backdrop-filter: blur(20px);
+}
+
+.now-playing-thumbnail,
+.now-playing-artwork {
+    border-radius: var(--sp-radius-sm) !important;
+    box-shadow: var(--sp-shadow-soft);
+}
+
+.now-playing-title {
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+}
+.now-playing-artist { color: var(--sp-text-dim) !important; }
+
+.control-btn,
+.volume-btn,
+.queue-btn,
+.bluetooth-btn {
+    background: transparent !important;
+    color: var(--sp-text-dim) !important;
+    border-radius: 50% !important;
+    transition: all 0.2s var(--sp-ease) !important;
+    border: none !important;
+}
+.control-btn:hover,
+.volume-btn:hover,
+.queue-btn:hover,
+.bluetooth-btn:hover {
+    color: var(--sp-text) !important;
+    transform: scale(1.08);
+}
+
+.control-btn.play-btn,
+.control-btn.pause-btn,
+.control-btn[data-action="play"],
+.control-btn[data-action="pause"] {
+    background: var(--sp-text) !important;
+    color: #000 !important;
+    width: 44px !important;
+    height: 44px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+.control-btn.play-btn:hover,
+.control-btn.pause-btn:hover,
+.control-btn[data-action="play"]:hover,
+.control-btn[data-action="pause"]:hover {
+    background: var(--sp-green) !important;
+    color: #000 !important;
+    transform: scale(1.06);
+    box-shadow: var(--sp-shadow-glow);
+}
+
+.progress,
+.progress-bar {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 999px !important;
+    height: 4px !important;
+    overflow: visible !important;
+}
+.progress-filled {
+    background: var(--sp-text) !important;
+    border-radius: 999px !important;
+    transition: background 0.2s var(--sp-ease);
+}
+.progress-bar:hover .progress-filled { background: var(--sp-green) !important; }
+
+.progress-handle {
+    background: var(--sp-text) !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    width: 12px !important;
+    height: 12px !important;
+}
+
+.time { color: var(--sp-text-dim) !important; font-variant-numeric: tabular-nums; }
+
+.volume-slider,
+.ep-volume-slider {
+    accent-color: var(--sp-green);
+}
+
+.volume-slider-container {
+    background: var(--sp-bg-3) !important;
+    border-radius: var(--sp-radius-md) !important;
+    border: 1px solid var(--sp-stroke) !important;
+    box-shadow: var(--sp-shadow-soft);
+}
+
+.expanded-player,
+.ep-content {
+    background:
+        radial-gradient(1000px 600px at 50% 0%, rgba(29, 185, 84, 0.18), transparent 60%),
+        linear-gradient(180deg, #1a1a1a 0%, var(--sp-bg-0) 100%) !important;
+    border-radius: var(--sp-radius-xl) !important;
+    backdrop-filter: blur(24px);
+    box-shadow: var(--sp-shadow-pop), inset 0 0 0 1px var(--sp-stroke);
+}
+
+.ep-overlay {
+    background: rgba(0, 0, 0, 0.65) !important;
+    backdrop-filter: blur(12px);
+}
+
+.ep-artwork,
+.ep-artwork-wrap {
+    border-radius: var(--sp-radius-md) !important;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px var(--sp-stroke);
+    overflow: hidden;
+}
+
+.ep-title {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+}
+.ep-artist { color: var(--sp-text-dim) !important; }
+
+.ep-btn,
+.ep-action-btn {
+    background: transparent !important;
+    color: var(--sp-text-dim) !important;
+    border-radius: 50% !important;
+    transition: all 0.2s var(--sp-ease) !important;
+}
+.ep-btn:hover,
+.ep-action-btn:hover {
+    color: var(--sp-text) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    transform: scale(1.06);
+}
+
+.ep-btn.play,
+.ep-btn[data-action="play"],
+.ep-btn[data-action="pause"] {
+    background: var(--sp-text) !important;
+    color: #000 !important;
+    width: 56px !important;
+    height: 56px !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+.ep-btn.play:hover,
+.ep-btn[data-action="play"]:hover,
+.ep-btn[data-action="pause"]:hover {
+    background: var(--sp-green) !important;
+    transform: scale(1.06);
+    box-shadow: var(--sp-shadow-glow);
+}
+
+.ep-slider {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 999px !important;
+    height: 4px !important;
+}
+.ep-progress {
+    background: var(--sp-text) !important;
+    border-radius: 999px !important;
+}
+
+.ep-favorite.active,
+.ep-favorite.liked {
+    color: var(--sp-green) !important;
+}
+
+.modal,
+.playlist-modal {
+    background: rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(16px);
+}
+
+.modal-content {
+    background: linear-gradient(180deg, #1f1f1f 0%, var(--sp-bg-2) 100%) !important;
+    border-radius: var(--sp-radius-lg) !important;
+    border: 1px solid var(--sp-stroke) !important;
+    box-shadow: var(--sp-shadow-pop);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--sp-stroke) !important;
+    font-weight: 700 !important;
+}
+
+.new-playlist-form input,
+.new-playlist input {
+    background: var(--sp-bg-3) !important;
+    border: 1px solid var(--sp-stroke) !important;
+    border-radius: var(--sp-radius-sm) !important;
+    color: var(--sp-text) !important;
+    font-family: var(--sp-font) !important;
+    transition: all 0.2s var(--sp-ease);
+}
+.new-playlist-form input:focus,
+.new-playlist input:focus {
+    outline: none;
+    border-color: var(--sp-green) !important;
+    background: var(--sp-bg-4) !important;
+}
+
+.close-btn,
+.close-modal,
+.minimize-btn,
+.ep-close {
+    background: transparent !important;
+    color: var(--sp-text-dim) !important;
+    border-radius: 50% !important;
+    width: 32px !important;
+    height: 32px !important;
+    transition: all 0.2s var(--sp-ease) !important;
+}
+.close-btn:hover,
+.close-modal:hover,
+.minimize-btn:hover,
+.ep-close:hover {
+    color: var(--sp-text) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    transform: rotate(90deg);
+}
+
+.spinner {
+    border-top-color: var(--sp-green) !important;
+}
+
+.empty-state,
+.loading-state,
+.error-state {
+    color: var(--sp-text-dim) !important;
+}
+
+.mini-player {
+    background: linear-gradient(180deg, var(--sp-bg-3) 0%, var(--sp-bg-1) 100%) !important;
+    border-radius: 24px !important;
+    border: 1px solid var(--sp-stroke) !important;
+    box-shadow: var(--sp-shadow-pop), inset 0 0 0 1px var(--sp-stroke);
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+}
+
+.mini-player .mini-thumbnail,
+.mini-player .mini-art {
+    border-radius: 12px !important;
+    box-shadow: var(--sp-shadow-soft);
+}
+
+.dj-station,
+.dj-text,
+.dj-title {
+    font-family: var(--sp-font) !important;
+    letter-spacing: -0.01em !important;
+}
+
+.bluetooth-btn.active,
+.queue-btn.active {
+    color: var(--sp-green) !important;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.22);
+    background-clip: padding-box;
+}
+
+button {
+    font-family: var(--sp-font) !important;
+}
+
+.delete-playlist {
+    border-radius: 50% !important;
+    transition: all 0.2s var(--sp-ease) !important;
+}
+.delete-playlist:hover {
+    background: rgba(239, 68, 68, 0.12) !important;
+    color: #ef4444 !important;
+}
+
+.playlist-selector {
+    background: var(--sp-bg-3) !important;
+    border: 1px solid var(--sp-stroke) !important;
+    border-radius: var(--sp-radius-sm) !important;
+}
+
+.playlist-cover {
+    border-radius: var(--sp-radius-sm) !important;
+    box-shadow: var(--sp-shadow-soft);
+}

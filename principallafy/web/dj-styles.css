@@ -1,0 +1,269 @@
+
+.dj-mode-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 0 2px 10px rgba(255, 107, 107, 0.3);
+  z-index: 1000;
+  animation: djPulse 2s infinite;
+}
+
+.dj-icon {
+  font-size: 16px;
+  animation: djRotate 3s linear infinite;
+}
+
+.dj-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.dj-title {
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.dj-station {
+  font-size: 10px;
+  opacity: 0.9;
+}
+
+@keyframes djPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes djRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dj-mode {
+  border: 2px solid #ff6b6b;
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+}
+
+.dj-mode .top-bar {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+}
+
+.dj-mode .player-bar {
+  background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+  border-top: 2px solid #ff6b6b;
+}
+
+.ambient-source.dj-source {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  border-left: 4px solid #fff;
+}
+
+.ambient-source.dj-source .ambient-title {
+  font-weight: 600;
+}
+
+.dj-marker {
+  position: relative;
+}
+
+.dj-marker::before {
+  content: "🎧";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  animation: djBounce 1s infinite;
+}
+
+@keyframes djBounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+.dj-controls {
+  display: none;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+.dj-mode .dj-controls {
+  display: flex;
+}
+
+.dj-control-btn {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.dj-control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+.dj-control-btn:active {
+  transform: translateY(0);
+}
+
+.dj-mode .now-playing {
+  position: relative;
+  overflow: hidden;
+}
+
+.dj-mode .now-playing::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.2), transparent);
+  animation: djSweep 3s infinite;
+}
+
+@keyframes djSweep {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.muted-indicator {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  background: rgba(255, 0, 0, 0.9);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 15px;
+  font-size: 11px;
+  font-weight: 600;
+  display: none;
+  z-index: 1000;
+  animation: mutePulse 1s infinite;
+}
+
+.muted-indicator.active {
+  display: block;
+}
+
+@keyframes mutePulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.ambient-sources {
+  max-height: 200px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ff6b6b #2c2c2c;
+}
+
+.ambient-sources::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ambient-sources::-webkit-scrollbar-track {
+  background: #2c2c2c;
+  border-radius: 3px;
+}
+
+.ambient-sources::-webkit-scrollbar-thumb {
+  background: #ff6b6b;
+  border-radius: 3px;
+}
+
+.ambient-sources::-webkit-scrollbar-thumb:hover {
+  background: #ee5a24;
+}
+
+@media (max-width: 768px) {
+  .dj-mode-indicator {
+    top: 5px;
+    right: 5px;
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+
+  .dj-icon {
+    font-size: 14px;
+  }
+
+  .dj-controls {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .dj-control-btn {
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+}
+
+.dj-mode,
+.dj-mode * {
+  transition: all 0.3s ease;
+}
+
+.dj-mode .track-card:hover {
+  border-left: 4px solid #ff6b6b;
+  transform: translateX(4px);
+}
+
+.dj-mode .tab.active {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+}
+
+@keyframes djModeEnter {
+  from {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.dj-mode {
+  animation: djModeEnter 0.5s ease-out;
+}
